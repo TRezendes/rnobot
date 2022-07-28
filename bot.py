@@ -1,9 +1,13 @@
+from config import Config
 import pandas as pd
 import random
+import tweepy
 import json
 
+client = tweepy.Client()
 
-repeat = 10
+
+repeat = 3
 
 def RNoBot1(repeat):
     # Base URL for NYTimes Best Seller List API, unless an offset parameter is set, will return the first 20 results from a list of all NYTimes best sellers sorted alphabetically.
