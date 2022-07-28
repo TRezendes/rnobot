@@ -1,2 +1,2 @@
-# rnobot
+# RNobBot
  A snarky Twitter bot.
