@@ -1,10 +1,16 @@
+from urllib.request import urlopen
 from config import Config
 import pandas as pd
 import random
 import tweepy
 import json
 
-client = tweepy.Client()
+client = tweepy.Client(
+    consumer_key=Config.API_KEY,
+    consumer_secret=Config.API_SECRET,
+    access_token=Config.ACCESS_TOKEN,
+    access_token_secret=Config.ACCESS_SECRET
+)
 
 
 repeat = 3
@@ -72,4 +78,8 @@ def RNoBot3():
     word_df = pd.read_json(wordnik_url)
     # Extract the word from the result
     plural_noun = word_df['word'][0]
-    print(f'There are no {plural_noun} in "{random_book_result}"')
+    tweet = f'There are no {plural_noun} in "{random_book_result}"'
+    print(tweet)
+    return tweet
+    
+client.create_tweet(text=RNoBot3())
