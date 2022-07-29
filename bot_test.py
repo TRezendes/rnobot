@@ -5,12 +5,11 @@ import random
 import tweepy
 import json
 
-client = tweepy.Client(
-    consumer_key=Config.API_KEY,
-    consumer_secret=Config.API_SECRET,
-    access_token=Config.ACCESS_TOKEN,
-    access_token_secret=Config.ACCESS_SECRET
-)
+#client = tweepy.Client(
+#    consumer_key=Config.API_KEY,
+#    consumer_secret=Config.API_SECRET,
+#    access_token_secret=Config.ACCESS_SECRET
+#)
 
 
 repeat = 3
@@ -40,7 +39,7 @@ def RNoBot1(repeat):
         # Extract the title from the random result. Capitalization is not consistent, so change it to title case
         random_result = (results['title'][result_num]).title()
         print(random_result)
-        
+
 def RNoBot2():
     # Wordnik API query URL to get a single plural noun
     wordnik_url = "https://api.wordnik.com/v4/words.json/randomWords?hasDictionaryDef=true&includePartOfSpeech=noun-plural&maxCorpusCount=-1&minDictionaryCount=1&maxDictionaryCount=-1&minLength=4&maxLength=-1&limit=1&api_key=1zlwj5kjnntu0fjurs1wbca5t1tp2dv0k723fkll4fysjq3p9"
@@ -81,5 +80,7 @@ def RNoBot3():
     tweet = f'There are no {plural_noun} in "{random_book_result}"'
     print(tweet)
     return tweet
-    
-client.create_tweet(text=RNoBot3())
+
+RNoBot3()
+
+#client.create_tweet(text=RNoBot3())
