@@ -49,6 +49,7 @@ def RNoBot2():
     word = word_df['word'][0]
     print(word)
 
+# The grunt work
 def RNoBot3():
     # Base URL for NYTimes Best Seller List API, unless an offset parameter is set, will return the first 20 results from a list of all NYTimes best sellers sorted alphabetically.
     base_url = 'https://api.nytimes.com/svc/books/v3/lists/best-sellers/history.json?api-key=o14TzRzctK4QHyY7LQKTbPGzl2BquHcG'
@@ -77,7 +78,7 @@ def RNoBot3():
     word_df = pd.read_json(wordnik_url)
     # Extract the word from the result
     plural_noun = word_df['word'][0]
-    tweet = f'There are no {plural_noun} in "{random_book_result}"'
+    tweet = f'There are no {plural_noun} in "{random_book_result}".'
     print(tweet)
     return tweet
 
