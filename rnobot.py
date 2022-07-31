@@ -12,11 +12,14 @@ client = tweepy.Client(
     access_token=Config.ACCESS_TOKEN,
     access_token_secret=Config.ACCESS_SECRET
 )
+nytKey = Config.NYT_KEY
+wordnikKey = Config.WORDNIK_KEY
+
 
 # The grunt work
 def RNoBot3():
     # Base URL for NYTimes Best Seller List API, unless an offset parameter is set, will return the first 20 results from a list of all NYTimes best sellers sorted alphabetically.
-    base_url = 'https://api.nytimes.com/svc/books/v3/lists/best-sellers/history.json?api-key=o14TzRzctK4QHyY7LQKTbPGzl2BquHcG'
+    base_url = 'https://api.nytimes.com/svc/books/v3/lists/best-sellers/history.json?api-key=' + nytKey
     with urlopen(base_url) as jfile1:
         jdata1 = json.load(jfile1)
     # From the initial result, capture the total number of results in the list
@@ -37,14 +40,14 @@ def RNoBot3():
     # Extract the title from the random result. Capitalization is not consistent, so change it to title case
     random_book_result = (results['title'][result_num]).title()
     # Wordnik API query URL to get a single plural noun
-    wordnik_url = "https://api.wordnik.com/v4/words.json/randomWords?hasDictionaryDef=true&includePartOfSpeech=noun-plural&maxCorpusCount=-1&minDictionaryCount=1&maxDictionaryCount=-1&minLength=4&maxLength=-1&limit=1&api_key=1zlwj5kjnntu0fjurs1wbca5t1tp2dv0k723fkll4fysjq3p9"
+    wordnik_url = "https://api.wordnik.com/v4/words.json/randomWords?hasDictionaryDef=true&includePartOfSpeech=noun-plural&maxCorpusCount=-1&minDictionaryCount=1&maxDictionaryCount=-1&minLength=4&maxLength=-1&limit=1&api_key=" + wordnikKey
     # Call the API
     word_df = pd.read_json(wordnik_url)
     # Extract the word from the result
     plural_noun = word_df['word'][0]
     tweet = f'There are no {plural_noun} in "{random_book_result}".'
-    #print(tweet)
+    print(tweet)
     return tweet
-    
+
 # And…tweet it!
 client.create_tweet(text=RNoBot3())

@@ -12,3 +12,5 @@ class Config(object):
 	ACCESS_SECRET = os.environ.get('ACCESS_SECRET')
 	OAUTH2_ID = os.environ.get('OAUTH2_ID')
 	OAUTH2_SECRET = os.environ.get('OAUTH2_SECRET')
+	NYT_KEY = os.environ.get('NYT_KEY')
+	WORDNIK_KEY = os.environ.get('WORDNIK_KEY')
