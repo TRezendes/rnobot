@@ -4,11 +4,17 @@
 ### A Snarky Twitter Bot
  When the discourse is this stupid, all you can do is make fun of it.
  
- Uses plural nouns from the Wordnik API and book titles from the New York Times Books API to highlight the absurdity of transphobic Twitter discourse.
+ Uses plural nouns from the Wordnik API and book titles from the New York Times Books API to highlight the absurdity of transphobic social media discourse.
    
    
    <br />  
-<img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/RNoBot232?style=social">  
+   
+---
+
+## Moving to Mastodon
+
+RNoBot is no longer posting to Twitter, and the @RNoBot232 account will be deactivated soon. I intend to update the bot for Mastodon, but I'm not sure when that will happen.
+
   
   
  ---
